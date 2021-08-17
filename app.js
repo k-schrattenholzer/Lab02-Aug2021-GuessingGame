@@ -1,4 +1,6 @@
 // import functions and grab DOM elements
+import { compareNumbers } from './utils.js';
+
 const userGuess = document.getElementById('user-guess');
 const guessButton = document.getElementById('guess-button');
 const resultsSpan = document.getElementById('results');
@@ -31,6 +33,7 @@ guessButton.addEventListener ('click', () => {
         guessButton.disable = true;
         userGuess.disable = true;
         guessEl.style.display = 'none';
+        resetButton.style.display = 'flex';
     }
 });
 
@@ -43,14 +46,5 @@ resetButton.addEventListener ('click', () => {
   // update DOM to reflect the new state
 
   //making a function to compare numbers
-export function compareNumbers(userInput, correctAnswer) {
-    if (userInput > correctAnswer) {
-        return 1;
-    }
-    if (userInput === correctAnswer) {
-        return 0;
-    }
-    if (userInput < correctAnswer)
-        return -1;
-}
+
 
