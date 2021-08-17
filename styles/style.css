@@ -110,3 +110,12 @@ footer {
     }
 
   }
+.guesses {
+    display: none;
+}
+#results {
+    display: none;
+}
+#reset-button {
+    display: none;
+}

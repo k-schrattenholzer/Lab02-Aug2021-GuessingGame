@@ -12,39 +12,54 @@ const resetButton = document.getElementById('reset-button');
 let guessCount = 4;
 let correctAnswer = Math.ceil ((Math.random ()) * 20);
 
-// set event listeners
+// set event listeners for guess and reset buttons
 guessButton.addEventListener ('click', () => {
+    console.log(correctAnswer);
     let currentGuess = Number(userGuess.value);
     let result = compareNumbers (currentGuess, correctAnswer);
+    guessEl.style.display = 'block';
     if (result === 0) {
-        resultsSpan.textContent = 'HOT DOG! You guessed it!';
-        guessEl.style.display = 'none';
+        userWin();
+        disableInputForReplay();
     }
     if (result === 1) {
+        resultsSpan.style.display = 'flex';
         resultsSpan.textContent = 'Too high, try again.';
+        console.log ('too high');
     }
     if (result === -1) {
+        resultsSpan.style.display = 'flex';
         resultsSpan.textContent = 'Too low, try again.';
+        console.log ('too low');
     }
-    guessCount --;
-    guessRem.textContent = guessCount;
-    if (guessCount === 0) {
-        resultsSpan.textContent = 'You had four tries but alas, the wizard wins again.';
-        guessButton.disable = true;
-        userGuess.disable = true;
-        guessEl.style.display = 'none';
-        resetButton.style.display = 'flex';
+    if (guessCount === 1 && result !== 0) {
+        resultsSpan.textContent = 'You had four tries but alas, the wizard takes the gold. Try again!';
+        disableInputForReplay();
     }
+    if (guessCount === 1 && result === 0) {
+        userWin();
+        disableInputForReplay();
+    }
+    decrementGuesses();
 });
 
 resetButton.addEventListener ('click', () => {
     location.reload ();
 });
 
-  // get user input
-  // use user input to update state 
-  // update DOM to reflect the new state
+function disableInputForReplay() {
+    guessButton.style.display = 'none';
+    userGuess.style.display = 'none';
+    guessEl.style.display = 'none';
+    resetButton.style.display = 'flex';
+}
 
-  //making a function to compare numbers
+function userWin() {
+    resultsSpan.style.display = 'flex';
+    resultsSpan.textContent = 'HOT DOG! You guessed it!';
+}
 
-
+function decrementGuesses() {
+    guessCount --;
+    guessRem.textContent = guessCount;
+}

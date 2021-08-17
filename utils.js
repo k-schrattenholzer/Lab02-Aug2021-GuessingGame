@@ -1,4 +1,4 @@
-export default function compareNumbers(userInput, correctAnswer) {
+export function compareNumbers(userInput, correctAnswer) {
     if (userInput > correctAnswer) {
         return 1;
     }
