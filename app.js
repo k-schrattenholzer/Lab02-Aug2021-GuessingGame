@@ -73,9 +73,9 @@ function displayResults() {
 }
 
 function resultTooHigh() {
-    resultsSpan.textContent = 'Too high, try again.';
+    resultsSpan.textContent = 'Hint: Too high, try again.';
 }
 
 function resultTooLow() {
-    resultsSpan.textContent = 'Too low, try again.';
+    resultsSpan.textContent = 'Hint: Too low, try again.';
 }
