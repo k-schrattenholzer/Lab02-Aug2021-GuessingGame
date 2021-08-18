@@ -60,7 +60,7 @@ function userWin() {
 }
 
 function userLoss() {
-    resultsSpan.textContent = 'You had four tries but alas, the wizard takes the gold. Try again!';
+    resultsSpan.textContent = 'You had four tries but alas, the wizard takes the gold.';
 }
 
 function decrementGuesses() {
