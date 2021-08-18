@@ -56,11 +56,11 @@ function disableForReplay() {
 
 function userWin() {
     resultsSpan.style.display = 'flex';
-    resultsSpan.textContent = 'HOT DOG! You guessed it!';
+    resultsSpan.textContent = `PRECISELY! You have made the wizard very happy.`;
 }
 
 function userLoss() {
-    resultsSpan.textContent = 'Alas, the wizard takes the gold.';
+    resultsSpan.textContent = `Alas, the wizard takes the gold. Their favorite number is ${correctAnswer} (for now.....)`;
 }
 
 function decrementGuesses() {
